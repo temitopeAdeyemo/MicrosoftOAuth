@@ -14,7 +14,7 @@ function errorHandler(error, request, response, _) {
     }
     return response.status(500).json({
         success: false,
-        message: "Internal server error",
+        message: "Internal server error.",
         data: null,
     });
 }

@@ -1,5 +1,5 @@
 import PassportService from '../passport-setup/Passport';
-
+import config from '../config/environment';
 class OauthService extends PassportService {
   constructor() {
     super();
@@ -8,8 +8,8 @@ class OauthService extends PassportService {
   async setUpMicrosoftOauth() {
     const options = {
       callbackURL: `http://localhost:9000/redirect`,
-      clientID: '1b0b1e2b-308d-4c21-8de0-617453cd4665',
-      clientSecret: 'CSG8Q~-Aom8CBHiU2Vo1rv2AsuYzoSFdN0Rhda2i',
+      clientID: config.clientID,
+      clientSecret: config.clientSecret,
       scope: ['user.read'],
     };
 

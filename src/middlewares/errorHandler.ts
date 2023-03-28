@@ -11,14 +11,15 @@ export default function errorHandler(
   if (error instanceof AppError) {
     return response.status(error.statusCode).json({
       success: false,
-      message: error.message,
+      message: error,
       data: null,
     });
   }
-
+  console.log("ddddd", error);
+  
   return response.status(500).json({
     success: false,
-    message: "Internal server error.",
+    message: error,
     data: null,
   });
 }

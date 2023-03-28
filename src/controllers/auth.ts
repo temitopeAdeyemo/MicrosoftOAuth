@@ -2,7 +2,13 @@ import { Request, Response } from 'express';
 
 class Auth {
   homepage(req: Request, res: Response) {
-    return res.send('Home page');
+    try {
+          return res.send('Home page');
+    } catch (error) {
+      console.log(error);
+      
+    }
+
   }
 
   welcome(req: Request, res: Response) {

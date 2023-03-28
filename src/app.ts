@@ -4,9 +4,9 @@ import errorHandler from './middlewares/errorHandler';
 import routes from './routes/route';
 const session = require('express-session');
 require('dotenv').config();
-const passport = require('passport');
+import passport from 'passport';
 import OauthService from './Oauth/OauthService';
-// const fs = require('fs');
+import config from './config/environment';
 
 export default class App {
   app: express.Application;
@@ -17,7 +17,7 @@ export default class App {
 
     this.app.use(
       session({
-        secret: process.env.SESSION_SECRET,
+        secret: config.secret,
         resave: false,
         saveUninitialized: false,
       })

@@ -10,7 +10,7 @@ const route_1 = __importDefault(require("./routes/route"));
 const session = require('express-session');
 require('dotenv').config();
 const passport_1 = __importDefault(require("passport"));
-const OauthService_1 = __importDefault(require("./Oauth/OauthService"));
+const OauthConfig_1 = __importDefault(require("./Oauth/OauthConfig"));
 const environment_2 = __importDefault(require("./config/environment"));
 class App {
     constructor() {
@@ -23,7 +23,7 @@ class App {
         }));
         this.app.use(passport_1.default.initialize());
         this.app.use(passport_1.default.session());
-        new OauthService_1.default();
+        new OauthConfig_1.default();
         this.setRoutes();
         this.app.use(errorHandler_1.default);
     }

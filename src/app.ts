@@ -5,7 +5,7 @@ import routes from './routes/route';
 const session = require('express-session');
 require('dotenv').config();
 import passport from 'passport';
-import OauthService from './Oauth/OauthService';
+import OauthService from './Oauth/OauthConfig';
 import config from './config/environment';
 
 export default class App {

@@ -12,7 +12,6 @@ function errorHandler(error, request, response, _) {
             data: null,
         });
     }
-    console.log("ddddd", error);
     return response.status(500).json({
         success: false,
         message: error,

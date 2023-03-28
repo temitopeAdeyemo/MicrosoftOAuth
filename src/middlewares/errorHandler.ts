@@ -15,7 +15,6 @@ export default function errorHandler(
       data: null,
     });
   }
-  console.log("ddddd", error);
   
   return response.status(500).json({
     success: false,

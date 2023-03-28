@@ -22,7 +22,11 @@ class PassportService {
     async deSerialiseUser() {
         this.passport.deserializeUser((id, done) => { });
     }
-    async setUp(options) {
+    async config(config) {
+        await this.execute(config);
+    }
+    ;
+    async execute(options) {
         this.passport.use(new MicrosoftStrategy(options, async (accessToken, refreshToken, profile, done) => {
             try {
                 const userData = {

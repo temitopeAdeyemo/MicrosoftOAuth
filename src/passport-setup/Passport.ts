@@ -6,7 +6,7 @@ import microsoftStrategy, {
 
 const MicrosoftStrategy = microsoftStrategy.Strategy;
 
-class PassportService {
+abstract class PassportService {
   private passport: PassportStatic;
   private oauthUserService: OauthUserService;
   constructor() {
@@ -26,7 +26,11 @@ class PassportService {
     this.passport.deserializeUser((id, done) => {});
   }
 
-  protected async setUp(options: MicrosoftStrategyOptions) {
+  protected async config(config: MicrosoftStrategyOptions) {
+    await this.execute(config)
+  };
+
+  private async execute(options: MicrosoftStrategyOptions) {
     this.passport.use(
       new MicrosoftStrategy(
         options,

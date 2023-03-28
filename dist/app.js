@@ -23,7 +23,7 @@ class App {
         }));
         this.app.use(passport_1.default.initialize());
         this.app.use(passport_1.default.session());
-        new OauthService_1.default().setUpMicrosoftOauth();
+        new OauthService_1.default();
         this.setRoutes();
         this.app.use(errorHandler_1.default);
     }

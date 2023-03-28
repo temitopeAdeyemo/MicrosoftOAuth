@@ -4,7 +4,7 @@ dotenv.config({ path: './.env' });
 export default {
   port: process.env.PORT || '9000',
   baseUrl:
-    process.env.BASE_URL || `https://localhost:${process.env.PORT || '9000'}`,
+    process.env.BASE_URL || `http://localhost:${process.env.PORT || '9000'}`,
   secret: process.env.SECRET || 'secret',
   clientID: process.env.CLIENT_ID || '1b0b1e2b-308d-4c21-8de0-617453cd4665',
   clientSecret:

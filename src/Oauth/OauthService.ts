@@ -3,18 +3,16 @@ import config from '../config/environment';
 class OauthService extends PassportService {
   constructor() {
     super();
+    this.setUpMicrosoftOauth();
   }
 
-  async setUpMicrosoftOauth() {
-    const options = {
-      callbackURL: `http://localhost:9000/redirect`,
+  private async setUpMicrosoftOauth() {
+    return await this.config({
+      callbackURL: `${config.baseUrl}/redirect`,
       clientID: config.clientID,
       clientSecret: config.clientSecret,
       scope: ['user.read'],
-    };
-
-    await this.setUp(options);
-    return;
+    });
   }
 }
 

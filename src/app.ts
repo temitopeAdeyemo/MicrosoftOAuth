@@ -25,7 +25,7 @@ export default class App {
 
     this.app.use(passport.initialize());
     this.app.use(passport.session());
-    new OauthService().setUpMicrosoftOauth();
+    new OauthService();
     this.setRoutes();
     this.app.use(errorHandler);
   }

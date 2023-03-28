@@ -1,5 +1,5 @@
 import passport, { PassportStatic } from 'passport';
-import OauthUserService from '../Services/OauthUserService';
+import OauthUserService from '../Oauth/OauthUserService';
 import microsoftStrategy, {
   MicrosoftStrategyOptions,
 } from 'passport-microsoft';

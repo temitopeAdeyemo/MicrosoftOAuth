@@ -19,7 +19,7 @@ $ yarn install
 $ yarn run start:dev
 
 # production mode
-$ yarn run start
+$ yarn run start.
 ```
 
 ```

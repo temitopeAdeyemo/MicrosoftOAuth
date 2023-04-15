@@ -17,18 +17,20 @@ abstract class PassportService {
   }
 
   private async serialiseUser() {
-    this.passport.serializeUser(async (user, done) => {
-      done(null, user);
+    passport.serializeUser((user: any, done) => {
+      done(null, user.id);
     });
   }
 
   private async deSerialiseUser() {
-    this.passport.deserializeUser((id, done) => {});
+    passport.deserializeUser((id: string, done) => {
+      done(null, id);
+    });
   }
 
   protected async config(config: MicrosoftStrategyOptions) {
-    await this.execute(config)
-  };
+    await this.execute(config);
+  }
 
   private async execute(options: MicrosoftStrategyOptions) {
     this.passport.use(
@@ -41,12 +43,12 @@ abstract class PassportService {
           done: (err?: Error | null, user?: Express.User, info?: object) => void
         ) => {
           try {
-            const userData = {
+            const user = {
               email: profile.emails[0].value,
               id: profile.id,
             };
 
-            const user = await this.oauthUserService.create(userData);
+            await this.oauthUserService.create(user);
             return done(null, user);
           } catch (error: any) {
             console.log(error);

@@ -9,6 +9,7 @@ const MicrosoftStrategy = microsoftStrategy.Strategy;
 abstract class PassportService {
   private passport: PassportStatic;
   private oauthUserService: OauthUserService;
+
   constructor() {
     this.oauthUserService = new OauthUserService();
     this.passport = passport;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class Auth {
     homepage(req, res) {
-        return res.send('Home page');
+        return res.send('Home page, Please login.');
     }
     welcome(req, res) {
         return res.send('Welcome');

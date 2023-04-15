@@ -15,25 +15,26 @@ class PassportService {
         this.deSerialiseUser();
     }
     async serialiseUser() {
-        this.passport.serializeUser(async (user, done) => {
-            done(null, user);
+        passport_1.default.serializeUser((user, done) => {
+            done(null, user.id);
         });
     }
     async deSerialiseUser() {
-        this.passport.deserializeUser((id, done) => { });
+        passport_1.default.deserializeUser((id, done) => {
+            done(null, id);
+        });
     }
     async config(config) {
         await this.execute(config);
     }
-    ;
     async execute(options) {
         this.passport.use(new MicrosoftStrategy(options, async (accessToken, refreshToken, profile, done) => {
             try {
-                const userData = {
+                const user = {
                     email: profile.emails[0].value,
                     id: profile.id,
                 };
-                const user = await this.oauthUserService.create(userData);
+                await this.oauthUserService.create(user);
                 return done(null, user);
             }
             catch (error) {
